@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ctci.Library;
+using ctci.Contracts;
 
 namespace LinkedLists
 {
-    internal class Palindrome
+    internal class Palindrome : Question
     {
         public static bool isPalindrome(ListNode head)
         {
@@ -46,6 +48,20 @@ namespace LinkedLists
                 head = temp;
             }
             return prev;
+        }
+        public override void Run()
+        {
+            var input = "aabbcbbaa";
+            LinkedList list = new LinkedList();
+            foreach (var n in input)
+            {
+                list.AddToLast(n);
+            }
+
+            Console.WriteLine("\nIs the list parlindrome?");
+            Console.WriteLine("Original list: ");
+            list.printAllNodes();
+            Console.WriteLine(Palindrome.isPalindrome(list.head));
         }
     }
 }

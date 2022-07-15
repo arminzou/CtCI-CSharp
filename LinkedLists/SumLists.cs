@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ctci.Library;
+using ctci.Contracts;
 
 namespace LinkedLists
 {
-    internal class SumLists
+    internal class SumLists : Question
     {
         // Time: O(n) Space:O(1)
         public static ListNode AddLists(ListNode list1, ListNode list2)
@@ -49,6 +51,37 @@ namespace LinkedLists
             }
 
             return prev;
+        }
+
+        public override void Run()
+        {
+            var input1 = new int[] { 6, 1, 7 };
+            var input2 = new int[] { 2, 9, 5 };
+            LinkedList list1 = new LinkedList();
+            LinkedList list2 = new LinkedList();
+            foreach (var n in input1)
+            {
+                list1.AddToLast(n);
+            }
+
+            foreach (var n in input2)
+            {
+                list2.AddToLast(n);
+            }
+
+            Console.WriteLine("\nSum the two lists");
+            Console.WriteLine("Original list1: ");
+            list1.printAllNodes();
+            Console.WriteLine("Original list2: ");
+            list2.printAllNodes();
+
+            var result = AddLists(list1.head, list2.head);
+            Console.WriteLine("Result List: ");
+            LinkedList.printAllNodes(result);
+            var reversed = ReverseList(result);
+
+            Console.WriteLine("Result Reversed List: ");
+            LinkedList.printAllNodes(reversed);
         }
     }
 }
