@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ctci.Contracts;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,13 +11,13 @@ namespace ArraysAndStrings
     // of repeated characters.For example, the string aabcccccaaa would become a2blc5a3.If the
     // "compressed" string would not become smaller than the original string, your method should return
     // the original string. You can assume the string has only uppercase and lowercase letters (a - z).
-    public static class StringCompression
+    public class StringCompression : Question
     {
         // Straightforward approach but slow
         // Time: O(s + k^2) where s is the length of the string and k is the number of character sequences
         // string concatenation operates in O(n^2) time.
 
-        public static string CompressedStr(string str)
+        public string CompressedStr(string str)
         {
             string compressedString = "";
             int count = 0;
@@ -94,6 +95,14 @@ namespace ArraysAndStrings
                 }
             }
             return length;
+        }
+
+        public override void Run()
+        {
+            const string original = "abbccccccde";
+            var compressed = CompressedStr2(original);
+            Console.WriteLine("Original  : {0}", original);
+            Console.WriteLine("Compressed: {0}", compressed);
         }
     }
 }

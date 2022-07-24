@@ -1,13 +1,14 @@
-﻿using System;
+﻿using ctci.Contracts;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CodePractice
+namespace ArraysAndStrings
 {
     // Is Unique: Implement an algorithm to determine if a string has all unique characters. What if you cannot use additional data structures?
-    public static class UniqueChars
+    public class UniqueChars : Question
     {
         public static bool IsUniqueChars(string str)
         {
@@ -22,6 +23,16 @@ namespace CodePractice
                     array[value] = true;
             }
             return true;
+        }
+
+        public override void Run()
+        {
+            string[] words = { "abcde", "hello", "apple", "kite", "padle" };
+
+            foreach (var word in words)
+            {
+                Console.WriteLine(word + ": " + IsUniqueChars(word) + " " + IsUniqueChars(word));
+            }
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ctci.Contracts;
+using ctci.Library;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,9 +10,9 @@ namespace ArraysAndStrings
 {
     // Zero Matrix: Write an algorithm such that if an element in an MxN matrix is 0, its entire row and
     // column are set to 0.
-    public static class ZeroMatrix
+    public class ZeroMatrix : Question
     {
-        public static void SetZeros(int[][] matrix)
+        public void SetZeros(int[][] matrix)
         {
             // initialize boolean arr for row and column
             var row = new bool[matrix.Length];
@@ -21,7 +23,7 @@ namespace ArraysAndStrings
             {
                 for (int j = 0; j < matrix[0].Length; j++)
                 {
-                    if(matrix[i][j] == 0)
+                    if (matrix[i][j] == 0)
                     {
                         row[i] = true;
                         col[j] = true;
@@ -30,7 +32,7 @@ namespace ArraysAndStrings
             }
 
             // nullify rows
-            for(int i = 0; i < row.Length; i++)
+            for (int i = 0; i < row.Length; i++)
             {
                 if (row[i]) NullifyRow(matrix, i);
             }
@@ -42,7 +44,7 @@ namespace ArraysAndStrings
             }
         }
 
-        public static void SetZeros2(int[][] matrix)
+        public void SetZeros2(int[][] matrix)
         {
             bool rowHasZero = false;
             bool colHasZero = false;
@@ -71,9 +73,9 @@ namespace ArraysAndStrings
             // check for zeros in the rest of the array
             for (int i = 1; i < matrix.Length; i++)
             {
-                for(int j = 1; j < matrix[0].Length; j++)
+                for (int j = 1; j < matrix[0].Length; j++)
                 {
-                    if(matrix[i][j] == 0)
+                    if (matrix[i][j] == 0)
                     {
                         matrix[i][0] = 0;
                         matrix[0][j] = 0;
@@ -112,7 +114,7 @@ namespace ArraysAndStrings
             }
         }
 
-            public static void NullifyRow(int[][] matrix, int row)
+        public void NullifyRow(int[][] matrix, int row)
         {
             for (int i = 0; i < matrix[0].Length; i++)
             {
@@ -120,12 +122,32 @@ namespace ArraysAndStrings
             }
         }
 
-        public static void NullifyColumn(int[][] matrix, int col)
+        public void NullifyColumn(int[][] matrix, int col)
         {
             for (int j = 0; j < matrix.Length; j++)
             {
                 matrix[j][col] = 0;
             }
+        }
+
+        public override void Run()
+        {
+            const int numberOfRows = 10;
+            const int numberOfColumns = 15;
+            var matrix1 = AssortedMethods.RandomMatrix(numberOfRows, numberOfColumns, 0, 100);
+            var matrix2 = AssortedMethods.RandomMatrix(numberOfRows, numberOfColumns, 0, 100);
+
+            AssortedMethods.PrintMatrix(matrix1);
+
+            SetZeros(matrix1);
+            SetZeros2(matrix2);
+
+            Console.WriteLine();
+
+            AssortedMethods.PrintMatrix(matrix1);
+            Console.WriteLine();
+            AssortedMethods.PrintMatrix(matrix2);
+
         }
     }
 }

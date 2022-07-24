@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ctci.Contracts;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +12,7 @@ namespace ArraysAndStrings
     // A palindrome is a word or phrase that is the same forwards and backwards.A permutation
     // is a rearrangement of letters.The palindrome does not need to be limited to just dictionary words.
 
-    public static class PalindromePermutation
+    public class PalindromePermutation : Question
     {
         // Solution 1: Use Dictionary to store character frequency and check number of odd counts at the end
         public static bool IsPermutationOfPalindrome(string str)
@@ -78,6 +79,31 @@ namespace ArraysAndStrings
                 }
             }
             return oddCount <= 1;
+        }
+
+        public override void Run()
+        {
+            String[] strings = {"Rats live on no evil star",
+                            "A man, a plan, a canal, panama",
+                            "Lleve",
+                            "Tacotac",
+                            "asda"};
+
+            foreach (String s in strings)
+            {
+                bool a = IsPermutationOfPalindrome(s);
+                bool b = IsPermutationOfPalindrome2(s);
+                Console.WriteLine(s);
+                if (a == b)
+                {
+                    Console.WriteLine("Agree: " + a);
+                }
+                else
+                {
+                    Console.WriteLine("Disagree: " + a + ", " + b);
+                }
+                Console.WriteLine();
+            }
         }
     }
 }

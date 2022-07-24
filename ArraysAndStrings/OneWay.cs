@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ctci.Contracts;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,7 +10,7 @@ namespace ArraysAndStrings
     // One Away: There are three types of edits that can be performed on strings: insert a character,
     // remove a character, or replace a character.Given two strings, write a function to check if they are
     // one edit (or zero edits) away.
-    public static class OneWay
+    public class OneWay : Question
     {
         public static bool OneEditAway(string first, string second)
         {
@@ -39,6 +40,14 @@ namespace ArraysAndStrings
                 index2++;
             }
             return true;
+        }
+
+        public override void Run()
+        {
+            String a = "pse";
+            String b = "pale";
+            bool isOneEdit = OneEditAway(a, b);
+            Console.WriteLine("{0}, {1}: {2}", a, b, isOneEdit);
         }
     }
 }

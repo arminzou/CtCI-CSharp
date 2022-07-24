@@ -9,7 +9,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Contracts\Contracts.csproj" />
-    <ProjectReference Include="..\Library\Library.csproj" />
+    <ProjectReference Include="..\ctci.Library\ctci.Library.csproj" />
   </ItemGroup>
 
 </Project>

@@ -3,17 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32421.90
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArraysAndStrings", "ArraysAndStrings\ArraysAndStrings.csproj", "{6B911988-91D6-4AD2-815A-6737EAFE59DC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ArraysAndStrings", "ArraysAndStrings\ArraysAndStrings.csproj", "{6B911988-91D6-4AD2-815A-6737EAFE59DC}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LinkedLists", "LinkedLists\LinkedLists.csproj", "{0027E460-1EAC-46A7-BEB3-55FFC12C8C9B}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ctci.Library", "ctci.Library\ctci.Library.csproj", "{562E298C-B6A9-47EB-9286-5125CFD14F63}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Library", "Library\Library.csproj", "{769A1997-8806-4A6A-8624-8B84A8649698}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Contracts", "Contracts\Contracts.csproj", "{BB310544-BBE2-402D-9C85-78E18F8DE7E1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contracts", "Contracts\Contracts.csproj", "{BB310544-BBE2-402D-9C85-78E18F8DE7E1}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StacksAndQueues", "StacksAndQueues\StacksAndQueues.csproj", "{CBE2C564-1761-4414-B15E-CC345BB86F35}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StacksAndQueues", "StacksAndQueues\StacksAndQueues.csproj", "{CBE2C564-1761-4414-B15E-CC345BB86F35}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,10 +31,6 @@ Global
 		{562E298C-B6A9-47EB-9286-5125CFD14F63}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{562E298C-B6A9-47EB-9286-5125CFD14F63}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{562E298C-B6A9-47EB-9286-5125CFD14F63}.Release|Any CPU.Build.0 = Release|Any CPU
-		{769A1997-8806-4A6A-8624-8B84A8649698}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{769A1997-8806-4A6A-8624-8B84A8649698}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{769A1997-8806-4A6A-8624-8B84A8649698}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{769A1997-8806-4A6A-8624-8B84A8649698}.Release|Any CPU.Build.0 = Release|Any CPU
 		{BB310544-BBE2-402D-9C85-78E18F8DE7E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{BB310544-BBE2-402D-9C85-78E18F8DE7E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BB310544-BBE2-402D-9C85-78E18F8DE7E1}.Release|Any CPU.ActiveCfg = Release|Any CPU

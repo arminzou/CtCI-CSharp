@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ctci.Contracts;
+using ctci.Library;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +10,7 @@ namespace ArraysAndStrings
 {
     // Rotate Matrix: Given an image represented by an NxN matrix, where each pixel in the image is 4 bytes,
     // write a method to rotate the image by 90 degrees.Can you do this in place?
-    public static class RotateMatrix
+    public class RotateMatrix : Question
     {
         // pseudo code
         // for i = 0 to n
@@ -17,7 +19,7 @@ namespace ArraysAndStrings
         //  left[i] = bottom[i]
         //  bottom[i] = right[i]
         //  right[i] = temp
-        public static bool Rotate(int[][] matrix)
+        public bool Rotate(int[][] matrix)
         {
             // check if the matrix is a square matrix
             if (matrix.Length == 0 || matrix.Length != matrix[0].Length) return false;
@@ -51,6 +53,19 @@ namespace ArraysAndStrings
                 }
             }
             return false;
+        }
+
+        public override void Run()
+        {
+            const int size = 3;
+
+            var matrix = AssortedMethods.RandomMatrix(size, size, 0, 9);
+
+            AssortedMethods.PrintMatrix(matrix);
+
+            Rotate(matrix);
+            Console.WriteLine();
+            AssortedMethods.PrintMatrix(matrix);
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ctci.Contracts;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,9 +11,9 @@ namespace ArraysAndStrings
     // has sufficient space at the end to hold the additional characters, and that you are given the "true"
     // length of the string. (Note: If implementing in Java, please use a character array so that you can
     // perform this operation in place.)
-    public static class URLify
+    public class URLify : Question
     {
-        public static void ReplaceSpaces(char[] str, int trueLength)
+        public void ReplaceSpaces(char[] str, int trueLength)
         {
             // count whitespaces
             int numOfSpaces = 0, index, i = 0;
@@ -45,7 +46,7 @@ namespace ArraysAndStrings
                 }
             }
         }
-        public static int FindLastCharacter(char[] str)
+        public int FindLastCharacter(char[] str)
         {
             for (int i = str.Length - 1; i >= 0; i--)
             {
@@ -55,6 +56,20 @@ namespace ArraysAndStrings
                 }
             }
             return -1;
+        }
+
+        public override void Run()
+        {
+            const string input = "abc d e f";
+            var characterArray = new char[input.Length + 3 * 2 + 1];
+
+            for (var i = 0; i < input.Length; i++)
+            {
+                characterArray[i] = input[i];
+            }
+
+            ReplaceSpaces(characterArray, input.Length);
+            Console.WriteLine("{0} -> {1}", input, new string(characterArray));
         }
     }
 }
