@@ -88,4 +88,33 @@ namespace StacksAndQueues
             return cat;
         }
     }
+
+    public class Question_3_6
+    {
+        public void Run()
+        {
+            AnimalQueue animals = new AnimalQueue();
+            animals.Enqueue(new Cat("Callie"));
+            animals.Enqueue(new Cat("Kiki"));
+            animals.Enqueue(new Dog("Fido"));
+            animals.Enqueue(new Dog("Dora"));
+            animals.Enqueue(new Cat("Kari"));
+            animals.Enqueue(new Dog("Dexter"));
+            animals.Enqueue(new Dog("Dobo"));
+            animals.Enqueue(new Cat("Copa"));
+
+            Console.WriteLine("Dequeued:" + animals.DequeueAny().Name);
+            Console.WriteLine("Dequeued:" + animals.DequeueAny().Name);
+            Console.WriteLine("Dequeued:" + animals.DequeueAny().Name);
+
+            animals.Enqueue(new Dog("Dapa"));
+            animals.Enqueue(new Cat("Kilo"));
+
+            while (animals.Size() != 0)
+            {
+                Console.WriteLine(animals.DequeueAny().Name);
+            }
+            Console.WriteLine("\n\n");
+        }
+    }
 }

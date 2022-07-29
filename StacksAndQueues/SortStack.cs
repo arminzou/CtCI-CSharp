@@ -76,4 +76,29 @@ namespace StacksAndQueues
             return newStack;
         }
     }
+
+    public class Question_3_5
+    {
+        public void Run()
+        {
+            Stack<int> stack = new Stack<int>();
+            stack.Push(2);
+            stack.Push(15);
+            stack.Push(8);
+            stack.Push(1);
+            stack.Push(10);
+            stack.Push(99);
+            stack.Sort();
+            while (stack.Count > 0)
+            {
+                Console.WriteLine(stack.Pop());
+            }
+            var sortedStack = stack.MergeSort();
+            while (sortedStack.Count > 0)
+            {
+                Console.WriteLine(sortedStack.Pop());
+            }
+            Console.WriteLine("\n\n");
+        }
+    }
 }

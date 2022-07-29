@@ -12,4 +12,9 @@ namespace ctci.Contracts
 
         public string Name => GetType().ToString();
     }
+
+    public interface IQuestion
+    {
+        public void Run();
+    }
 }

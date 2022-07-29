@@ -1,4 +1,5 @@
 ﻿using ctci.Contracts;
+using ctci.Library;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -77,6 +78,31 @@ namespace StacksAndQueues
             {
                 return int.MaxValue;
             }
+        }
+    }
+
+    public class Question_3_2
+    {
+        public void Run()
+        {
+            var stack = new StackWithMin();
+            var stack2 = new StackWithMin2();
+
+            for (var i = 1; i <= 10; i++)
+            {
+                var value = AssortedMethods.RandomIntInRange(0, 100);
+                stack.Push2(value);
+                stack2.Push2(value);
+                Console.Write(value + ", ");
+            }
+
+            Console.WriteLine('\n');
+            for (var i = 1; i <= 10; i++)
+            {
+                Console.WriteLine("Popped " + stack.Pop().Value + ", " + stack2.Pop2());
+                Console.WriteLine("New min is " + stack.Min() + ", " + stack2.Min());
+            }
+            Console.WriteLine("\n\n");
         }
     }
 }

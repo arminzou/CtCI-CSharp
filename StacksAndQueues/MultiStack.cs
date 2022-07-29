@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ctci.Contracts;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,10 +22,10 @@ namespace StacksAndQueues
 
         public void Push(int stackNum, int value)
         {
-            if (stackPointers[stackNum] + 1 > stackCapacity) 
+            if (stackPointers[stackNum] + 1 > stackCapacity)
                 throw new IndexOutOfRangeException("Out of space");
             stackPointers[stackNum]++;
-            stackValues[IndexOfTop(stackNum)]= value;
+            stackValues[IndexOfTop(stackNum)] = value;
         }
 
         public int Pop(int stackNum)
@@ -50,4 +51,22 @@ namespace StacksAndQueues
             return offset + size - 1;
         }
     }
+    public class Question_3_1
+    {
+        public void Run()
+        {
+            var multiStack = new MultiStack(2);
+            multiStack.Push(0, 1);
+            Console.WriteLine(multiStack.Peek(0));
+            multiStack.Push(1, 5);
+            Console.WriteLine(multiStack.Peek(1));
+            multiStack.Push(2, 10);
+            multiStack.Push(2, 15);
+            multiStack.Pop(2);
+            Console.WriteLine(multiStack.Peek(2));
+            Console.WriteLine("\n\n");
+        }
+    }
 }
+
+    

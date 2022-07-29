@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ctci.Contracts;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,7 +17,7 @@ namespace StacksAndQueues
             Value = value;
         }
     }
-    internal class Stack
+    internal class Stack 
     {
         readonly int _capacity;
         public Node Top { get; set; }
@@ -165,6 +166,36 @@ namespace StacksAndQueues
             var last = GetLastStack();
 
             return last == null || last.IsEmpty();
+        }
+    }
+
+    public class Question_3_3
+    {
+        public void Run()
+        {
+            const int capacityPerSubstack = 5;
+            var set = new SetOfStacks(capacityPerSubstack);
+
+            Console.WriteLine("IsEmpty? {0}", set.IsEmpty());
+
+            for (var i = 0; i < 34; i++)
+            {
+                set.Push(i);
+            }
+            Console.WriteLine("IsEmpty? {0}", set.IsEmpty());
+
+            for (var i = 0; i < 34; i++)
+            {
+                if (i == 0)
+                {
+                    set.PopAt(i);
+                }
+                else
+                {
+                    Console.WriteLine("Popped " + set.Pop());
+                }
+            }
+            Console.WriteLine("\n\n");
         }
     }
 }

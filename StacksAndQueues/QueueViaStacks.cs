@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ctci.Contracts;
+using ctci.Library;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -47,13 +49,62 @@ namespace StacksAndQueues
 
         public void ShiftStacks()
         {
-            if(stack2.Count == 0)
+            if (stack2.Count == 0)
             {
                 while (stack1.Count > 0)
                 {
                     stack2.Push(stack1.Pop());
                 }
             }
+        }
+    }
+
+    public class Question_3_4
+    {
+        public void Run()
+        {
+            var myQueue = new StackQueue<int>();
+
+            // Let's test our code against a "real" queue
+            var testQueue = new Queue<int>();
+
+            for (var i = 0; i < 100; i++)
+            {
+                var choice = AssortedMethods.RandomIntInRange(0, 10);
+
+                if (choice <= 5)
+                {
+                    // enqueue
+                    var element = AssortedMethods.RandomIntInRange(1, 10);
+                    testQueue.Enqueue(element);
+                    myQueue.Enqueue(element);
+                    Console.WriteLine("Enqueued " + element);
+                }
+                else if (testQueue.Count > 0)
+                {
+                    var top1 = testQueue.Dequeue();
+                    var top2 = myQueue.Dequeue();
+
+                    if (top1 != top2)
+                    { // Check for error
+                        Console.WriteLine("******* FAILURE - DIFFERENT TOPS: " + top1 + ", " + top2);
+                    }
+                    Console.WriteLine("Dequeued " + top1);
+                }
+
+                if (testQueue.Count == myQueue.Size())
+                {
+                    if (testQueue.Count > 0 && testQueue.Peek() != myQueue.Peek())
+                    {
+                        Console.WriteLine("******* FAILURE - DIFFERENT TOPS: " + testQueue.Peek() + ", " + myQueue.Peek() + " ******");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("******* FAILURE - DIFFERENT SIZES ******");
+                }
+            }
+            Console.WriteLine("\n\n");
         }
     }
 }
